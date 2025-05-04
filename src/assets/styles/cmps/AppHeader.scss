@@ -1,0 +1,64 @@
+.app-header {
+    z-index: 100;
+    display: grid;
+    grid-template-columns: minmax(20px, 1fr) minmax(0, 1200px) minmax(20px, 1fr);
+
+    >* {
+        grid-column: 2;
+    }
+
+    min-height: 3.5rem;
+    background-color: white;
+    padding-block: 0.7rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    nav {
+        display: flex;
+        width: 100%;
+        align-items: center;
+
+        .active {
+            color: $clr1;
+        }
+
+        .logo {
+            font-size: 1.4em;
+            font-family: 'montserrat-bold';
+            color: $clr1;
+        }
+
+        .login-link {
+            margin-inline-start: auto;
+        }
+
+        button {
+            margin-inline-end: 0;
+            background-color: white;
+            color: $gray4;
+            border: 0.5px solid $gray3;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+
+            &:hover {
+                background-color: rgb(244, 243, 243);
+            }
+        }
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-inline-start: auto;
+        font-size: 0.8rem;
+
+        color: $gray3;
+
+        img {
+            width: 32px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
+    }
+}

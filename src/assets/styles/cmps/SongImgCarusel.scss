@@ -1,0 +1,52 @@
+.song-img-carusel {
+
+    position: relative;
+    white-space: nowrap;
+    // padding-block: 7rem;
+    margin-block: 1rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        background-color: pink;
+        height: 5rem;
+        width: 5rem;
+    }
+
+
+    .song-img-slide {
+        display: inline-block;
+
+        .song-img-list {
+            display: flex;
+        }
+
+        img {
+            margin-left: 0.5rem;
+            max-height: 200px;
+            max-width: 200px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            filter: grayscale(90%) brightness(150%) sepia(40%);
+        }
+
+        animation: 35s slide infinite linear;
+    }
+    
+
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+
+    }
+
+}

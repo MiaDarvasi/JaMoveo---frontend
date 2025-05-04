@@ -1,0 +1,86 @@
+.login-form,
+.signup-form {
+	display: grid;
+	width: min(80%, 300px);
+	place-items: center;
+	margin: auto;
+
+	padding: 1em;
+
+	input {
+		width: 100%;
+		padding: 0.5rem;
+	}
+
+	button {
+		padding: 0.6rem 1.2rem;
+		transition: 0.4s;
+
+		&:hover {
+			background-color: $clr2;
+		}
+	}
+}
+
+.signup-form {
+
+	.admin-toggle {
+		display: flex;
+		align-items: center;
+		justify-self: start;
+
+		span {
+			font-size: .8em;
+		}
+	}
+}
+
+.login-page nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2em;
+
+	margin-block: 100px 0.5em;
+
+	a {
+		position: relative;
+		font-size: 0.8em;
+		color: $clr4;
+		transition: 0.4s;
+
+		&::after {
+			z-index: 20;
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background-color: transparent;
+			transition: 0.4s;
+		}
+
+		&:hover {
+			color: $clr1;
+		}
+	}
+
+	a.active {
+		font-family: 'montserrat-med';
+		color: $clr2-dark;
+		transition: 0.4s;
+
+		&::after {
+			z-index: 20;
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background-color: $clr2;
+			transition: 0.4s;
+		}
+	}
+}

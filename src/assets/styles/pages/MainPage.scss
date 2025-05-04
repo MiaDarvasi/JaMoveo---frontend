@@ -1,0 +1,57 @@
+.main-page {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+
+    text-align: center;
+    font-family: 'montserrat-thin';
+
+
+    // margin-block-start: 3rem;
+
+    h1 {
+        font-size: 2rem;
+        margin-block: 1rem;
+    }
+
+    .top-main-page {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        align-items: center;
+
+        img {
+            max-height: 60vh;
+            justify-self: end;
+        }
+    }
+
+    .admin-search {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        gap: 1rem;
+
+        input {
+            font-size: 0.7rem;
+            width: 15rem;
+            padding: 0.5rem;
+        }
+    }
+
+    a {
+        display: inline-flex;
+        font-size: 1rem;
+        font-family: 'montserrat-light';
+        color: $clr1-light;
+
+        .arrow {
+            margin-left: 0.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover .arrow {
+            transform: translateX(5px);
+        }
+    }
+}

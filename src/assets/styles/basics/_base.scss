@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    line-height: 1.6;
+    color: $gray4;
+}
+    
+body {
+    margin: 0 auto;
+    font-family: 'montserrat-reg';
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+input {
+    max-width: 100%;
+    all: unset;
+    border: 0.5px solid $gray3;
+    border-radius: 10px;
+}
+
+button {
+    border-radius: 10px;
+}

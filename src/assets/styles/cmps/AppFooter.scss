@@ -1,0 +1,49 @@
+.app-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 3.5rem;
+
+    padding: rem(10px) 1rem;
+    background-color: white;
+    border-top: 0.1px solid $gray4;
+
+    p {
+        margin: 0;
+    }
+    
+    span {
+        font-size: .8em;
+        
+        &.local-services {
+            color: $clr1;
+        }
+        
+        &.remote-services {
+            color: $clr1;
+        }
+    }
+
+    div {
+        display: flex;
+        place-items: end;
+        gap: 0.5rem;
+
+        font-size: 0.7rem;
+        color: $gray4;
+
+        img {
+            max-width: 1.2rem;
+            transition: 0.4s;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:hover img {
+            scale: 1.2
+        }
+    }
+}
