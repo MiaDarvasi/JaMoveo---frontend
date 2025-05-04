@@ -19,10 +19,14 @@
 
             section {
                 justify-self: end;
+                display: flex;
+                align-items: center;
             }
 
             button,
             a {
+                display: inline-block;
+
                 padding: 0.5rem 1rem;
                 background-color: #a5c9f9;
                 border-radius: 10px;
@@ -30,6 +34,7 @@
                 color: $gray4;
                 font-size: 0.8rem;
                 font-family: 'montserrat-light';
+                text-align: center;
 
                 transition: 0.3s;
 
@@ -38,9 +43,30 @@
                 }
             }
 
+            a {
+                font-size: 0.7rem;
+            }
+
             p {
                 span {
                     font-family: 'montserrat-med';
+                }
+            }
+
+            @media (max-width: 750px) {
+                grid-template-columns: 1fr 2fr 1fr;
+                gap: 1rem;
+
+                section {
+                    flex-direction: column;
+                }
+
+                button, a {
+                    height: max-content;
+                }
+
+                a {
+                    padding: 0.2rem;
                 }
             }
         }

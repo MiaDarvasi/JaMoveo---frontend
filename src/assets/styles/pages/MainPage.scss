@@ -21,24 +21,45 @@
         align-items: center;
 
         img {
+            width: 100%;
+            height: 100%;
             justify-self: end;
             aspect-ratio: 3 / 2;
             object-fit: cover;
         }
-    }
 
-    .admin-search {
-        display: flex;
-        flex-direction: column;
-        place-items: center;
-        gap: 1rem;
+        .admin-search {
+            display: flex;
+            flex-direction: column;
+            place-items: center;
+            gap: 1rem;
 
-        input {
-            font-size: 0.7rem;
-            width: 15rem;
-            padding: 0.5rem;
+            input {
+                font-size: 0.7rem;
+                width: 15rem;
+                padding: 0.5rem;
+            }
+        }
+
+        @media (max-width: 750px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+
+            .admin-search {
+                order: 2;
+                margin-block-end: 2rem;
+
+                h1 {
+                    margin: 0;
+                }
+            }
+    
+            img {
+                order: 1;
+            }
         }
     }
+
 
     a {
         display: inline-flex;
@@ -58,17 +79,16 @@
 
     .img-credit {
         z-index: 50;
-        position: absolute;
-        top: 5.5rem;
-        left: 52vw;
+        position: relative;
 
+        bottom: 2.5rem;
+        right: -1rem;
 
-        background-color: rgba(253, 216, 125, 60%);
-        padding: 0.5rem 1rem;
+        width: max-content;
+
+        background-color: rgba(253, 216, 125, 70%);
+        padding-inline: 0.5rem;
         border-radius: 10px;
-
-        font-size: 0.8rem;
-
 
         opacity: 0;
         visibility: hidden;
@@ -80,14 +100,16 @@
             transition: opacity 0.3s ease, visibility 0s 0s;
         }
 
+
         p {
             margin: 0;
+            font-size: 0.6rem;
 
             a {
                 font-family: 'montserrat-bold';
                 color: $clr1;
                 transition: 0.4s;
-                font-size: 0.7rem;
+                font-size: 0.6rem;
 
                 &:hover {
                     scale: 1.05;
@@ -96,10 +118,10 @@
             }
 
             &:last-of-type {
-                font-size: 0.6rem;
+                font-size: 0.5rem;
 
                 a {
-                    font-size: 0.6rem;
+                    font-size: 0.5rem;
                 }
             }
         }
@@ -109,5 +131,6 @@
         opacity: 1;
         visibility: visible;
         transition: opacity 0.3s ease, visibility 0s 0s;
+
     }
 }
