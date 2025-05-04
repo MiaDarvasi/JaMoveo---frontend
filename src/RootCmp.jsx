@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router'
+import { socketService } from './services/socket.service.js'
 
 import { MainPage } from './pages/MainPage.jsx'
 import { ResultsPage } from './pages/ResultsPage.jsx'
 import { LivePage } from './pages/LivePage.jsx'
-// import { ChatApp } from './pages/Chat.jsx'
 
 import { LoginSignup } from './pages/LoginSignup.jsx'
 import { Login } from './pages/Login.jsx'
@@ -16,6 +16,11 @@ import { AppFooter } from './cmps/AppFooter'
 import { UserMsg } from './cmps/UserMsg.jsx'
 
 export function RootCmp() {
+
+    useEffect(() => {
+        socketService.setup()
+    }, [])
+
     return (
         <div className="main-container">
             <AppHeader />

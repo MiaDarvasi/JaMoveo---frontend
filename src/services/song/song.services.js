@@ -9,7 +9,6 @@ export async function query(filterBy = { name: '', artist: '' }) {
 	try {
 		const res = await fetch(url)
 		const data = await res.json()
-		// Map iTunes results to your app format
 		return data.results.map(song => ({
 			name: song.trackName,
 			artist: song.artistName,

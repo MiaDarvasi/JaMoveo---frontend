@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
+import { socketService } from '../services/socket.service'
 
 export function ResultsPage() {
 	const location = useLocation()
@@ -6,6 +7,7 @@ export function ResultsPage() {
 	const results = location.state?.results || []
 
 	function handleSelect(song) {
+		socketService.emit('admin-select-song', song)
 		navigate('/live', { state: { song } })
 	}
 

@@ -1,5 +1,7 @@
 .app-header {
     z-index: 100;
+    position: fixed;
+    top: 0;
     display: grid;
     grid-template-columns: minmax(20px, 1fr) minmax(0, 1200px) minmax(20px, 1fr);
 
@@ -7,7 +9,8 @@
         grid-column: 2;
     }
 
-    min-height: 3.5rem;
+    height: 4rem;
+    width: 100%;
     background-color: white;
     padding-block: 0.7rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

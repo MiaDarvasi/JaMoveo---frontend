@@ -1,14 +1,28 @@
 import { useSelector } from "react-redux"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { songService } from "../services/song/song.services"
 import { useNavigate } from "react-router"
 import { SongImgCarusel } from "../cmps/songImgCarusel"
 
 export function MainPage() {
-	const user = useSelector(storeState => storeState.userModule.user)
+
 	const [searchTerm, setSearchTerm] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
+
+	const user = useSelector(storeState => storeState.userModule.user)
 	const navigate = useNavigate()
+
+	useEffect(() => {
+		if (!user?.isAdmin) {
+			socketService.on('start-live-session', (song) => {
+				navigate('/live', { state: { song } })
+			})
+		}
+
+		return () => {
+			socketService.off('start-live-session')
+		}
+	}, [navigate, user])
 
 	function handleChange(ev) {
 		setSearchTerm(ev.target.value)
@@ -49,7 +63,13 @@ export function MainPage() {
 						</button>
 					</section>
 				)}
-				<img src="https://cdn.dribbble.com/userupload/4768581/file/original-1ac26a8d62c9dd6058419ed55ae411d6.png?resize=2048x1536&vertical=center"/>
+				<section>
+					<img src="https://cdn.dribbble.com/userupload/4768581/file/original-1ac26a8d62c9dd6058419ed55ae411d6.png?resize=2048x1536&vertical=center" />
+					<div className="img-credit">
+						<p>This image was created by <a href="https://dribbble.com/qoyyumarfi" target="blank">Qoyyum Arfi</a> for <a href="https://dribbble.com/vektora" target="blank">Vectora</a></p>
+						<p>Image sourced from <a href="https://dribbble.com/" target="blank">Dribbble</a></p>
+					</div>
+				</section>
 			</section>
 
 			<SongImgCarusel />

@@ -33,7 +33,7 @@ export function Login() {
     }
 
     return (
-        <form className="login-form" onSubmit={onLogin}>
+        <form className="login-form" onSubmit={onLogin} >
             <h2>Login</h2>
             <input
                 type="text"
