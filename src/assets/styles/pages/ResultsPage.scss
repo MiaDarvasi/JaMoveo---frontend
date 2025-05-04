@@ -1,0 +1,46 @@
+.results-page {
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: grid;
+            grid-template-columns: 0.5fr 2fr 4fr;
+            align-items: center;
+            background-color: #e0ebfc;
+            padding: 0.5rem;
+
+            &:nth-child(even) {
+                background-color: #f6f9fd;
+            }
+
+            section {
+                justify-self: end;
+            }
+
+            button,
+            a {
+                padding: 0.5rem 1rem;
+                background-color: #a5c9f9;
+                border-radius: 10px;
+
+                color: $gray4;
+                font-size: 0.8rem;
+                font-family: 'montserrat-light';
+
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: $clr2;
+                }
+            }
+
+            p {
+                span {
+                    font-family: 'montserrat-med';
+                }
+            }
+        }
+    }
+}

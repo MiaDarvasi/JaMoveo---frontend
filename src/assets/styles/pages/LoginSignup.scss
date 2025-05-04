@@ -20,6 +20,13 @@
 			background-color: $clr2;
 		}
 	}
+
+	p {
+		text-align: center;
+		font-size: 0.8rem;
+		color: rgb(249, 52, 52);
+		animation: flash-bg 1.5s ease-out forwards;
+	}
 }
 
 .signup-form {
@@ -84,3 +91,13 @@
 		}
 	}
 }
+
+@keyframes flash-bg {
+	0% {
+		background-color: rgba(247, 123, 123, 0.6);
+	}
+	100% {
+		background-color: transparent;
+	}
+}
+

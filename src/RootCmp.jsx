@@ -9,6 +9,7 @@ import { LivePage } from './pages/LivePage.jsx'
 import { LoginSignup } from './pages/LoginSignup.jsx'
 import { Login } from './pages/Login.jsx'
 import { Signup } from './pages/Signup.jsx'
+import { LoginAdmin } from './pages/LoginAdmin.jsx'
 
 import { AppHeader } from './cmps/AppHeader'
 import { AppFooter } from './cmps/AppFooter'
@@ -28,6 +29,7 @@ export function RootCmp() {
                     <Route path="" element={<LoginSignup />}>
                         <Route index element={<Login />} />
                         <Route path="signup" element={<Signup />} />
+                        <Route path="login/admin" element={<LoginAdmin />} />
                     </Route>
                 </Routes>
             </main>

@@ -1,23 +1,23 @@
-import { songList } from '../../data/songData'
-
 export const songService = {
-    query,
+	query
 }
 
-export function query(filterBy = { name: '', artist: '' }) {
-    const { name, artist } = filterBy
+export async function query(filterBy = { name: '', artist: '' }) {
+	const term = encodeURIComponent(`${filterBy.name || ''} ${filterBy.artist || ''}`.trim())
+	const url = `https://itunes.apple.com/search?term=${term}&entity=song&limit=25`
 
-    let songs = songList.filter(song => {
-        const matchesName = name
-            ? song.name.toLowerCase().includes(name.toLowerCase())
-            : true
-        const matchesArtist = artist
-            ? song.artist.toLowerCase().includes(artist.toLowerCase())
-            : true
-
-        return matchesName || matchesArtist
-    })
-
-    songs = songs.map(({ name, artist, lyrics, chords }) => ({ name, artist, lyrics, chords }))
-    return songs
+	try {
+		const res = await fetch(url)
+		const data = await res.json()
+		// Map iTunes results to your app format
+		return data.results.map(song => ({
+			name: song.trackName,
+			artist: song.artistName,
+			previewUrl: song.previewUrl,
+			artworkUrl: song.artworkUrl100
+		}))
+	} catch (err) {
+		console.error('Failed to fetch songs:', err)
+		return []
+	}
 }
