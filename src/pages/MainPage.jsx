@@ -24,6 +24,7 @@ export function MainPage() {
 		}
 	}, [navigate, user])
 
+
 	function handleChange(ev) {
 		setSearchTerm(ev.target.value)
 	}

@@ -24,6 +24,7 @@ export function LivePage() {
     }, [navigate])
 
     if (!song) return <p>No song selected.</p>
+    if (!user) return <div>Loading...</div>; 
 
     const hasLyricsData = Array.isArray(song.lyrics) && song.lyrics.length > 0
     const lyricsData = hasLyricsData ? song.lyrics : heyJudeData
@@ -55,12 +56,19 @@ export function LivePage() {
             )}
 
             <section className="lyrics-chords">
-                {lyricsData.map((line, idx) => (
+                {user.instrument !== 'singer' && lyricsData.map((line, idx) => (
                     <p key={idx}>
                         {line.map((word, i) => (
                             <span key={i}>
                                 {word.chords ? <strong>{word.chords}</strong> : ''} {word.lyrics}
                             </span>
+                        ))}
+                    </p>
+                ))}
+                {user.instrument === 'singer' && lyricsData.map((line, idx) => (
+                    <p key={idx}>
+                        {line.map((word, i) => (
+                            <span key={i}> {word.lyrics} </span>
                         ))}
                     </p>
                 ))}

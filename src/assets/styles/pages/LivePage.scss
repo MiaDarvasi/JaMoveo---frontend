@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 2rem;
 
+    background-color: aliceblue;
     margin-block-start: 5rem;
     text-align: center;
 
@@ -15,12 +16,14 @@
 
     .fallback-msg {
         font-family: 'montserrat-light';
-
+        
         p {
-            margin-block-end: 4rem;
+            padding-block-end: 2rem;
+            background-color: white;
 
             span {
                 font-family: 'montserrat-bold';
+                color: $clr1;
             }
         }
 
@@ -28,6 +31,7 @@
 
     h1 {
         font-family: 'montserrat-med';
+        padding-top: 2rem;
     }
 
     .lyrics-chords {
@@ -47,6 +51,7 @@
         width: max-content;
         align-self: center;
         transition: 0.4s;
+        margin-block-end: 2rem;
 
         &:hover {
             background-color: $clr1-light;
