@@ -1,15 +1,15 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import heyJudeData from '../data/hey_jude.json'
 import { useSelector } from 'react-redux'
-import { userService } from '../services/user'
 import { socketService, SOCKET_EVENT_END_LIVE } from '../services/socket.service'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export function LivePage() {
     const navigate = useNavigate()
     const location = useLocation()
     const song = location.state?.song
     const user = useSelector(storeState => storeState.userModule.user)
+    const [isAutoScroll, setIsAutoScroll] = useState(true)
 
     useEffect(() => {
         const onEndSession = () => {
@@ -18,13 +18,28 @@ export function LivePage() {
 
         socketService.on(SOCKET_EVENT_END_LIVE, onEndSession)
 
+        let scrollIntervalId
+
+        if (isAutoScroll) {
+            const scrollStep = 1
+            const scrollDelay = 50
+
+            scrollIntervalId = setInterval(() => {
+                window.scrollBy(0, scrollStep)
+                const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight
+                if (atBottom) clearInterval(scrollIntervalId)
+            }, scrollDelay)
+        }
+
         return () => {
             socketService.off(SOCKET_EVENT_END_LIVE, onEndSession)
+            if (scrollIntervalId) clearInterval(scrollIntervalId)
         }
-    }, [navigate])
+    }, [navigate, isAutoScroll])
+
 
     if (!song) return <p>No song selected.</p>
-    if (!user) return <div>Loading...</div>; 
+    if (!user) return <div>Loading...</div>;
 
     const hasLyricsData = Array.isArray(song.lyrics) && song.lyrics.length > 0
     const lyricsData = hasLyricsData ? song.lyrics : heyJudeData
@@ -77,6 +92,9 @@ export function LivePage() {
             {user.isAdmin && (
                 <button onClick={handleEndSession}>End Session</button>
             )}
+            <button className="scroll-toggle-btn" onClick={() => setIsAutoScroll(prev => !prev)}>
+                {isAutoScroll ? 'Stop Auto-Scroll' : 'Start Auto-Scroll'}
+            </button>
         </section>
     )
 }

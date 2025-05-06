@@ -37,7 +37,7 @@
     .lyrics-chords {
 
         p {
-            margin-block: 2rem;
+            margin-block: 3rem;
 
             strong {
                 position: relative;
@@ -56,6 +56,12 @@
         &:hover {
             background-color: $clr1-light;
         }
+    }
+
+    .scroll-toggle-btn {
+        position: fixed;
+        top: 6rem;
+        right: 20px;
     }
 
 }
