@@ -22,11 +22,11 @@ export function ResultsPage() {
 						<p><span>{song.name}</span> by {song.artist}</p>
 						<section>
 							{song.previewUrl && (
-								<a href={song.previewUrl} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '10px' }}>
+								<a href={song.previewUrl} target="_blank" rel="noopener noreferrer">
 									Preview Track
 								</a>
 							)}
-							<button onClick={() => handleSelect(song)} style={{ marginLeft: '10px' }}>
+							<button onClick={() => handleSelect(song)}>
 								Select Song
 							</button>
 						</section>
