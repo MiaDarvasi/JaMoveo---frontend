@@ -59,7 +59,7 @@ async function update(user) {
 
 async function login(userCred) {
 	try {
-		const user = await httpService.post('auth/login', userCred)
+		const user = await httpService.post('auth/login', userCred)		
 		return saveLoggedinUser(user)
 	} catch (err) {
 		console.error('Login failed:', err)
