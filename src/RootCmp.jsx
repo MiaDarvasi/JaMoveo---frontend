@@ -14,6 +14,7 @@ import { LoginAdmin } from './pages/LoginAdmin.jsx'
 import { AppHeader } from './cmps/AppHeader'
 import { AppFooter } from './cmps/AppFooter'
 import { UserMsg } from './cmps/UserMsg.jsx'
+import { SignupAdmin } from './pages/SignupAdmin.jsx'
 
 export function RootCmp() {
 
@@ -33,8 +34,9 @@ export function RootCmp() {
                     <Route path="live" element={<LivePage />} />
                     <Route path="" element={<LoginSignup />}>
                         <Route index element={<Login />} />
-                        <Route path="signup" element={<Signup />} />
                         <Route path="login/admin" element={<LoginAdmin />} />
+                        <Route path="signup" element={<Signup />} />
+                        <Route path="signup/admin" element={<SignupAdmin />} />
                     </Route>
                 </Routes>
             </main>

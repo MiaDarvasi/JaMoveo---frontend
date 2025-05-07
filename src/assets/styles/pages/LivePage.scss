@@ -16,7 +16,7 @@
 
     .fallback-msg {
         font-family: 'montserrat-light';
-        
+
         p {
             padding-block-end: 2rem;
             background-color: white;
@@ -51,7 +51,6 @@
         width: max-content;
         align-self: center;
         transition: 0.4s;
-        margin-block-end: 2rem;
 
         &:hover {
             background-color: $clr1-light;
@@ -59,9 +58,19 @@
     }
 
     .scroll-toggle-btn {
+        z-index: 1000;
         position: fixed;
-        top: 6rem;
-        right: 20px;
+        bottom: 0;
+
+        display: flex;
+        justify-content: center;
+
+        width: 100%;
+
+        padding-block: 1rem;
+        margin: 0;
+
+        font-family: 'montserrat-med';
     }
 
 }

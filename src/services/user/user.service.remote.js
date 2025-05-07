@@ -67,9 +67,25 @@ async function login(userCred) {
 	}
 }
 
+// async function signup(userCred) {
+//     try {
+//         const userToSend = { ...userCred, isAdmin: false }
+//         const user = await httpService.post('auth/signup', userToSend)
+//         return saveLoggedinUser(user)
+//     } catch (err) {
+//         console.error('Signup failed:', err)
+//         throw err
+//     }
+// }
+
 async function signup(userCred) {
     try {
-        const userToSend = { ...userCred, isAdmin: false }
+        const userToSend = { ...userCred }
+
+        if (typeof userToSend.isAdmin !== 'boolean') {
+            userToSend.isAdmin = false
+        }
+
         const user = await httpService.post('auth/signup', userToSend)
         return saveLoggedinUser(user)
     } catch (err) {
@@ -77,6 +93,7 @@ async function signup(userCred) {
         throw err
     }
 }
+
 
 
 async function logout() {

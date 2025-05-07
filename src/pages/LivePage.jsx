@@ -70,6 +70,10 @@ export function LivePage() {
                 </div>
             )}
 
+            {user.isAdmin && (
+                <button onClick={handleEndSession}>End Session</button>
+            )}
+            
             <section className="lyrics-chords">
                 {user.instrument !== 'singer' && lyricsData.map((line, idx) => (
                     <p key={idx}>
@@ -89,9 +93,6 @@ export function LivePage() {
                 ))}
             </section>
 
-            {user.isAdmin && (
-                <button onClick={handleEndSession}>End Session</button>
-            )}
             <button className="scroll-toggle-btn" onClick={() => setIsAutoScroll(prev => !prev)}>
                 {isAutoScroll ? 'Stop Auto-Scroll' : 'Start Auto-Scroll'}
             </button>
